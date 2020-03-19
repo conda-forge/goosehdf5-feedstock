@@ -1,6 +1,6 @@
 {% set name = "goosehdf5" %}
-{% set version = "0.5.0" %}
-{% set sha256 = "3953f06b3ca1b10ad459612643c5ed14e2186e252815cd5ac73bfbd950cbfa62" %}
+{% set version = "0.5.1" %}
+{% set sha256 = "82d29f2cc76323b05f29cb8fd2d1f01399eb9fed3bbf6218ec49d478d2005562" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - G5check = GooseHDF5.cli.G5check:main
     - G5compare = GooseHDF5.cli.G5compare:main
@@ -44,8 +44,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Simple tools to inspect HDF5 files (wraps around h5py).'
-  description: 'Simple tools to inspect HDF5 files (wraps around h5py).'
+  summary: Simple tools to inspect HDF5 files (wraps around h5py).
+  description: Simple tools to inspect HDF5 files (wraps around h5py).
   doc_url: https://github.com/tdegeus/GooseHDF5
   dev_url: https://github.com/tdegeus/GooseHDF5
 
