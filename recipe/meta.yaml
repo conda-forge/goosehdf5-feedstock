@@ -1,6 +1,6 @@
 {% set name = "goosehdf5" %}
-{% set version = "0.8.1" %}
-{% set sha256 = "cbffcf2996b024d5c5460ed767a13eb66e1e810f65c39abd128454b6dea8a4c3" %}
+{% set version = "0.9.0" %}
+{% set sha256 = "5575e5575d9b83317936ca6cc451a4f362d238f422750e0fdead7f9639431f2a" %}
 
 package:
   name: {{ name|lower }}
