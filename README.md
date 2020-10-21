@@ -5,9 +5,13 @@ Home: https://github.com/tdegeus/GooseHDF5
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/goosehdf5-feedstock/blob/master/LICENSE.txt)
 
 Summary: Simple tools to inspect HDF5 files (wraps around h5py).
+
+Development: https://github.com/tdegeus/GooseHDF5
+
+Documentation: https://github.com/tdegeus/GooseHDF5
 
 Simple tools to inspect HDF5 files (wraps around h5py).
 
