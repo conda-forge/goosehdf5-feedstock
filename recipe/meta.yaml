@@ -1,43 +1,45 @@
 {% set name = "goosehdf5" %}
 {% set version = "0.10.0" %}
-{% set sha256 = "4c24c349fca229d288ac97d3d9a971ff48c7c681bbeda4ad08dbb64ebc5def3a" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/tdegeus/GooseHDF5/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - G5check = GooseHDF5.cli.G5check:main
     - G5compare = GooseHDF5.cli.G5compare:main
     - G5list = GooseHDF5.cli.G5list:main
+    - G5print = GooseHDF5.cli.G5print:main
+    - G5repack = GooseHDF5.cli.G5repack:main
     - G5repair = GooseHDF5.cli.G5repair:main
 
 requirements:
   host:
     - python >=3
     - pip
-    - setuptools
+    - setuptools_scm
   run:
     - python >=3
-    - docopt
     - h5py
 
 test:
   imports:
     - GooseHDF5
   commands:
-    - G5check --help
-    - G5compare --help
-    - G5list --help
-    - G5repair --help
+    - G5check --version
+    - G5compare --version
+    - G5list --version
+    - G5print --version
+    - G5repack --version
+    - G5repair --version
 
 about:
   home: https://github.com/tdegeus/GooseHDF5
