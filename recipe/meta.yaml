@@ -1,4 +1,4 @@
-{% set name = "goosehdf5" %}
+{% set name = "GooseHDF5" %}
 {% set version = "0.10.0" %}
 
 package:
@@ -42,14 +42,14 @@ test:
     - G5repair --version
 
 about:
-  home: https://github.com/tdegeus/GooseHDF5
+  home: https://github.com/tdegeus/{{ name }}
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Simple tools to inspect HDF5 files (wraps around h5py).
   description: Simple tools to inspect HDF5 files (wraps around h5py).
-  doc_url: https://github.com/tdegeus/GooseHDF5
-  dev_url: https://github.com/tdegeus/GooseHDF5
+  doc_url: https://github.com/tdegeus/{{ name }}
+  dev_url: https://github.com/tdegeus/{{ name }}
 
 extra:
   recipe-maintainers:
