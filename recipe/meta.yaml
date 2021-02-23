@@ -1,53 +1,55 @@
-{% set name = "goosehdf5" %}
-{% set version = "0.9.2" %}
-{% set sha256 = "d096404d6e7b4f1706162910830102f50aa605f9276de8ca09bd928c844f7460" %}
+{% set name = "GooseHDF5" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/tdegeus/GooseHDF5/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: "9b465d2667cdb0d7e56afc8dc53c9f2bb5bf7096fb6300a9b11245a124cf2e05"
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - G5check = GooseHDF5.cli.G5check:main
     - G5compare = GooseHDF5.cli.G5compare:main
     - G5list = GooseHDF5.cli.G5list:main
+    - G5print = GooseHDF5.cli.G5print:main
+    - G5repack = GooseHDF5.cli.G5repack:main
     - G5repair = GooseHDF5.cli.G5repair:main
 
 requirements:
   host:
     - python >=3
     - pip
-    - setuptools
+    - setuptools_scm
   run:
     - python >=3
-    - docopt
     - h5py
 
 test:
   imports:
     - GooseHDF5
   commands:
-    - G5check --help
-    - G5compare --help
-    - G5list --help
-    - G5repair --help
+    - G5check --version
+    - G5compare --version
+    - G5list --version
+    - G5print --version
+    - G5repack --version
+    - G5repair --version
 
 about:
-  home: https://github.com/tdegeus/GooseHDF5
+  home: https://github.com/tdegeus/{{ name }}
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Simple tools to inspect HDF5 files (wraps around h5py).
   description: Simple tools to inspect HDF5 files (wraps around h5py).
-  doc_url: https://github.com/tdegeus/GooseHDF5
-  dev_url: https://github.com/tdegeus/GooseHDF5
+  doc_url: https://github.com/tdegeus/{{ name }}
+  dev_url: https://github.com/tdegeus/{{ name }}
 
 extra:
   recipe-maintainers:
