@@ -1,5 +1,5 @@
 {% set name = "GooseHDF5" %}
-{% set version = "0.11.0" %}
+{% set version = "0.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a93f4f2b2b233e9712225dc402de0841ed5cf612c4d0ad09b0ea1e1235c3ba5c
+  sha256: 6fd20643a7686b00679448999c92b66ba7645fac5daa376e11e4b86365bcbbc7
 
 build:
   number: 0
