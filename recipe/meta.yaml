@@ -29,6 +29,7 @@ requirements:
   run:
     - python >=3
     - h5py
+    - click
 
 test:
   imports:
