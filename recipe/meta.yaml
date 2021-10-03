@@ -1,17 +1,19 @@
 {% set name = "GooseHDF5" %}
-{% set version = "0.12.1" %}
+{% set org = "tdegeus" %}
+{% set version = "0.13.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f333451c6cb73f315606c43ae3916a6675f1fb564dd25902fd50820b7433d2aa
+  url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 8bc789c682812b35296bf167fc8bb229c745d867110f26e276e9e9c9c274d87b
 
 build:
   number: 0
   noarch: python
+  script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - G5check = GooseHDF5.cli.G5check:main
@@ -23,34 +25,38 @@ build:
 
 requirements:
   host:
-    - python >=3
     - pip
+    - python >=3
     - setuptools_scm
   run:
-    - python >=3
-    - h5py
     - click
+    - h5py
+    - python >=3
 
 test:
   imports:
-    - GooseHDF5
+    - {{ name }}
   commands:
+    - pip check
+    - python -c "import {{ name }}; print({{ name }}.version)"
     - G5check --version
     - G5compare --version
     - G5list --version
     - G5print --version
     - G5repack --version
     - G5repair --version
+  requires:
+    - pip
 
 about:
-  home: https://github.com/tdegeus/{{ name }}
+  home: https://github.com/{{ org }}/{{ name }}
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Simple tools to inspect HDF5 files (wraps around h5py).
   description: Simple tools to inspect HDF5 files (wraps around h5py).
-  doc_url: https://github.com/tdegeus/{{ name }}
-  dev_url: https://github.com/tdegeus/{{ name }}
+  doc_url: https://github.com/{{ org }}/{{ name }}
+  dev_url: https://github.com/{{ org }}/{{ name }}
 
 extra:
   recipe-maintainers:
