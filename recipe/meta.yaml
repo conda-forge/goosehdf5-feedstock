@@ -1,6 +1,6 @@
 {% set name = "GooseHDF5" %}
 {% set org = "tdegeus" %}
-{% set version = "0.15.2" %}
+{% set version = "0.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 0acfc759e1cf163daab64e88285135f674c534379efcb531224ce43728714d73
+  sha256: 2bc21f6570656270f3ebe58e5864ed28c03aaf18651d4ab56da03abad6931cdc
 
 build:
   number: 0
@@ -18,8 +18,8 @@ build:
   entry_points:
     - G5check = GooseHDF5.cli.G5check:main
     - G5compare = GooseHDF5.cli.G5compare:main
-    - G5list = GooseHDF5.cli.G5list:main
-    - G5print = GooseHDF5.cli.G5print:main
+    - G5list = GooseHDF5:_G5list_catch
+    - G5print = GooseHDF5:_G5print_catch
     - G5repack = GooseHDF5.cli.G5repack:main
     - G5repair = GooseHDF5.cli.G5repair:main
 
@@ -31,6 +31,7 @@ requirements:
   run:
     - click
     - h5py
+    - numpy
     - python >=3
 
 test:
