@@ -1,6 +1,6 @@
 {% set name = "GooseHDF5" %}
 {% set org = "tdegeus" %}
-{% set version = "0.17.0" %}
+{% set version = "0.17.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 6d73c437fbd199c9e5bb667505f92a3e7fefc69bc44f65379f177300e3e53030
+  sha256: 0d53de20fff8e4fbd95785827728c8175aaf4c6c3826c07ad3ec3d4c73a982ab
 
 build:
   number: 0
@@ -39,7 +39,7 @@ test:
     - {{ name }}
   commands:
     - pip check
-    - python -c "import {{ name }}; print({{ name }}.version)"
+    - python -c "import {{ name }}; assert {{ name }}.version == '{{ version }}'"
     - G5check --version
     - G5compare --version
     - G5list --version
