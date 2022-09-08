@@ -1,6 +1,6 @@
 {% set name = "GooseHDF5" %}
 {% set org = "tdegeus" %}
-{% set version = "0.17.1" %}
+{% set version = "0.18.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 0d53de20fff8e4fbd95785827728c8175aaf4c6c3826c07ad3ec3d4c73a982ab
+  sha256: c89de0f186f4f345d3fbf46271737dc15bc98d77c56a4807232c8fc53537722a
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
