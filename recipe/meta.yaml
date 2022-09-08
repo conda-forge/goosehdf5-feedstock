@@ -1,6 +1,6 @@
 {% set name = "GooseHDF5" %}
 {% set org = "tdegeus" %}
-{% set version = "0.18.0" %}
+{% set version = "0.18.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c89de0f186f4f345d3fbf46271737dc15bc98d77c56a4807232c8fc53537722a
+  sha256: 63170cfd3fe1194c87a3a6f42ada3cdb5d48b5507622abbcbd34102cb7ebdf21
 
 build:
   number: 0
@@ -17,7 +17,7 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - G5check = GooseHDF5.cli.G5check:main
-    - G5compare = GooseHDF5.cli.G5compare:main
+    - G5compare = GooseHDF5:_G5compare_catch
     - G5list = GooseHDF5:_G5list_catch
     - G5print = GooseHDF5:_G5print_catch
     - G5repack = GooseHDF5.cli.G5repack:main
@@ -32,7 +32,9 @@ requirements:
     - click
     - h5py
     - numpy
+    - prettytable
     - python >=3
+    - termcolor
 
 test:
   imports:
