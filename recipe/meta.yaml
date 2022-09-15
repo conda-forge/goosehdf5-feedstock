@@ -1,6 +1,6 @@
 {% set name = "GooseHDF5" %}
 {% set org = "tdegeus" %}
-{% set version = "0.19.0" %}
+{% set version = "0.20.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c03553ea7d842e14d767498771d6d48773eed6944088605559b06343ff28bf27
+  sha256: 386be6c66a8f391c21e2cdbe957210c822916b980c4078802c6b8b5593c22ae1
 
 build:
   number: 0
@@ -17,9 +17,9 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - G5check = GooseHDF5.cli.G5check:main
-    - G5compare = GooseHDF5:_G5compare_catch
-    - G5list = GooseHDF5:_G5list_catch
-    - G5print = GooseHDF5:_G5print_catch
+    - G5compare = GooseHDF5:_G5compare_cli
+    - G5list = GooseHDF5:_G5list_cli
+    - G5print = GooseHDF5:_G5print_cli
     - G5repack = GooseHDF5.cli.G5repack:main
     - G5repair = GooseHDF5.cli.G5repair:main
 
