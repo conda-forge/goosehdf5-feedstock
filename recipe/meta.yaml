@@ -34,6 +34,7 @@ requirements:
     - numpy
     - prettytable
     - python >=3
+    - pyyaml
     - termcolor
 
 test:
