@@ -36,6 +36,7 @@ requirements:
     - python >=3
     - pyyaml
     - termcolor
+    - typing-extensions >=4.5.0
 
 test:
   imports:
