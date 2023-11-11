@@ -1,6 +1,6 @@
 {% set name = "GooseHDF5" %}
 {% set org = "tdegeus" %}
-{% set version = "0.25.0" %}
+{% set version = "0.25.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 9355379a60c43ddf7ffc6be760b2fa9cfbe485471f43e343452ca5d55c4ac2ae
+  sha256: f7e0ab524fe0390bf75fd983da8cb95d772e60440987c94e4ff967258e8562a7
 
 build:
   number: 0
