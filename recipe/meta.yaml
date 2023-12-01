@@ -1,13 +1,11 @@
-{% set name = "GooseHDF5" %}
-{% set org = "tdegeus" %}
 {% set version = "0.27.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: goosehdf5
   version: {{ version }}
 
 source:
-  url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://github.com/tdegeus/GooseHDF5/archive/v{{ version }}.tar.gz
   sha256: 22963cbf82e2f6d00afb21c11a70c319691789106c3f6069e96028078ec55504
 
 build:
@@ -24,40 +22,41 @@ build:
 requirements:
   host:
     - pip
-    - python >=3
-    - setuptools_scm
+    - python >=3.6
+    - setuptools >=45
+    - setuptools_scm >=6.2
   run:
     - click
     - h5py
     - numpy
     - prettytable
-    - python >=3
+    - python >=3.6
     - pyyaml
     - termcolor
     - typing-extensions >=4.5.0
 
 test:
   imports:
-    - {{ name }}
+    - GooseHDF5
   commands:
     - pip check
-    - python -c "import {{ name }}; assert {{ name }}.version == '{{ version }}'"
-    - G5compare --version
-    - G5list --version
-    - G5modify --version
-    - G5print --version
+    - python -c "import GooseHDF5; assert GooseHDF5.version == '{{ version }}'"
+    - G5compare --version | grep {{ version }}
+    - G5list --version | grep {{ version }}
+    - G5modify --version | grep {{ version }}
+    - G5print --version | grep {{ version }}
   requires:
     - pip
 
 about:
-  home: https://github.com/{{ org }}/{{ name }}
+  home: https://github.com/tdegeus/GooseHDF5
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Simple tools to inspect HDF5 files (wraps around h5py).
   description: Simple tools to inspect HDF5 files (wraps around h5py).
-  doc_url: https://github.com/{{ org }}/{{ name }}
-  dev_url: https://github.com/{{ org }}/{{ name }}
+  doc_url: https://github.com/tdegeus/GooseHDF5
+  dev_url: https://github.com/tdegeus/GooseHDF5
 
 extra:
   recipe-maintainers:
